@@ -1,7 +1,6 @@
-# block.py
 import time
 from merkle_tree import calculate_merkle_root
-from custom_hash import custom_hash  # Бұл жолды қосу керек
+from custom_hash import custom_hash
 
 class Block:
     def __init__(self, timestamp, data, previous_hash):
@@ -17,3 +16,12 @@ class Block:
 
     def calculate_hash(self):
         return custom_hash(f"{self.timestamp}{self.data}{self.previous_hash}{self.merkle_root}")
+
+    def to_dict(self):  # ✅ JSON форматында шығару үшін
+        return {
+            "timestamp": self.timestamp,
+            "data": self.data,
+            "previous_hash": self.previous_hash,
+            "merkle_root": self.merkle_root,
+            "hash": self.hash
+        }

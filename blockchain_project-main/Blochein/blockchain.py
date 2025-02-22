@@ -1,4 +1,3 @@
-# blockchain.py
 import time
 from block import Block
 
@@ -7,8 +6,7 @@ class Blockchain:
         self.chain = [self.create_genesis_block()]
 
     def create_genesis_block(self):
-        # Генезис блокқа транзакциялар қосыңыз
-        return Block(time.time(), ["Транзакция 1"], "0")
+        return Block(time.time(), ["Genesis Block"], "0")
 
     def add_block(self, data):
         previous_block = self.chain[-1]
